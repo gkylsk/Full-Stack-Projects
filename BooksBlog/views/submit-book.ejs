@@ -1,0 +1,97 @@
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Submit Your Review</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead">Share your review on your favorite book. Fill the form to get started.</p>
+    </div>
+</div>
+
+
+<div class="row justify-content-center">
+    <!-- success message -->
+    <% if(infoSubmitObj != '') { %>
+    <div class="col-8 alert alert-success" role="alert">
+        <%= infoSubmitObj %>
+    </div>
+    <% } %>
+    <!-- Error message -->
+    <% if(infoErrorsObj != '') { %>
+        <div class="col-8 alert alert-danger" role="alert">
+            <%= infoErrorsObj[0].message %>
+        </div>
+    <% } %>
+
+    <div class="col-8">
+        <!-- form to enter review -->
+        <form action="/submit-book" class="row g-3 needs-validation" enctype="multipart/form-data" method="post" novalidate>
+                <!-- name -->
+                <div class="col-12">
+                    <label for="name" class="form-label">Book Name</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid name.
+                    </div>
+                </div>
+                <!-- description -->
+                <div class="col-12">
+                    <label for="description" class="form-label">Book Description</label>
+                    <textarea name="description" id="description" class="form-control" cols="30" rows="4" required></textarea>
+                    <div class="invalid-feedback">
+                        Please provide a valid description.
+                    </div>
+                </div>
+                <!-- author -->
+                <div class="col-12">
+                    <label for="author" class="form-label">Book Author</label>
+                    <input type="text" name="author" id="author" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid author name.
+                    </div>
+                </div>
+                <!-- rate -->
+                <div class="col-12">
+                    <label for="rate" class="form-label">Rate Book Out of 5</label>
+                    <input type="text" name="rate" id="rate" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid rating.
+                    </div>
+                </div>
+                <!-- category -->
+                <div class="col-12">
+                    <label for="category" class="form-label">Select Category</label>
+                    <select class="form-select form-control" name="category" aria-label="Category" required>
+                        <option selected>Select Category</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Historical Fiction">Historical Fiction</option>
+                        <option value="Science Fiction">Science Fiction</option>
+                        <option value="Young Adult">Young Adult</option>
+                        <option value="Biography or Autobiorgraphy">Biography/Autobiography</option>
+                        <option value="History">History</option>
+                        <option value="Science">Science</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Philosophy">Philosophy</option>
+                        <option value="Art">Art</option>
+                        <option value="Comics">Comics</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid category.
+                      </div>
+                </div>
+                <!-- image -->
+                <div class="col-12">
+                    <label for="image">Book Image</label>
+                    <input type="file" class="form-control" name="image" accept="image/*" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid image format.
+                      </div>
+                </div>
+                <!-- submit button -->
+                <div class="col-12">
+                    <button type="submit" class="btn btn-info">Submit Review</button>
+                </div>
+        </form>
+    </div>
+</div>
+<br>

@@ -1,0 +1,18 @@
+<h1 class="text-center pb-4">Search</h1>
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 py-4">
+
+    <% if(typeof book !== 'undefined' && book.length > 0) { %>
+        <% book.forEach(function(Collection , index){ %>
+    <a href="/collections/<%= Collection._id %>" class="col text-center category__link">
+        <div class="category__img category__img--large shadow">
+            <img src="/uploads/<%= Collection.image %>" alt="<%= Collection.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%= Collection.name %></div>   
+    </a>
+    <% }) %>
+    <% } else{ %>
+        <p> No items found. </p>
+    <% } %>
+
+</div>

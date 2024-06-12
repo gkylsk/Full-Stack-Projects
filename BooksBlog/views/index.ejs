@@ -1,0 +1,158 @@
+<div class="row flex-lg-row-reverse align-items-center g-2 py-4 mg-4">
+    <div class="col-12 col-lg-6">
+        <img src="/img/book-hero.jpg" width="250" height="100" class="d-block mx-lg-auto img-fluid" loading="lazy"
+            alt="Book Blog">
+    </div>
+
+    <div class="col-12 col-lg-6">
+        <h1 class="display-5 fw-bold mb-3">Huge Selection of Books</h1>
+        <p>Explore from our huge selection of books to add to your reading list. Embark on literary adventures with our
+            curated book reviews, and reading recommendations, guiding you through the boundless
+            worlds of fiction and non-fiction alike.
+        <p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="/explore-latest" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Explore Latest</a>
+            <a href="/explore-random" class="btn btn-outline-secondary btn-lg px-4 me-md-2">Show Random</a>
+        </div>
+    </div>
+</div>
+<br>
+<!-- Categories Start-->
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+    <!-- Cards -->
+
+    <% if(categories != ''){ %>
+        <% categories.forEach(function(Category,index){ %>
+    <a href="/categories/<%- Category.name %>" class="col text-center category__link">
+        <div class="category__img shadow">
+            <img src="img/<%- Category.image %>" alt="<%- Category.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%- Category.name %></div>
+    </a>
+        <% }) %>
+    <% } %>
+
+
+    <a href="/categories" class="col text-center category__link">
+        <div class="category__img shadow">
+            <img src="img/view-all.jpg" alt="View All Categories" loading="lazy">
+        </div>
+        <div class="pt-1">View All</div>
+    </a>
+</div>
+<!-- Categories End -->
+
+<!-- Latest Start -->
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2>Latest Collections</h2>
+        <a href="/explore-latest" class="ms-auto">View More</a>
+    </div>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 py-4">
+
+        <% if(book != '') { %>
+            <% book.latest.forEach(function(Collection , index){ %>
+        <a href="/collections/<%= Collection._id %>" class="col text-center category__link">
+            <div class="category__img category__img--large shadow">
+                <img src="/uploads/<%= Collection.image %>" alt="<%= Collection.name %>" loading="lazy">
+            </div>
+            <div class="pt-1"><%= Collection.name %></div>   
+        </a>
+        <% }) %>
+        <% } %>
+
+    </div>
+</section>
+<!-- Latest End -->
+
+<!-- Romance Start -->
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2>Romance Collections</h2>
+        <a href="/categories/Romance" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 py-4">
+
+        <% if(typeof book.romance !== 'undefined' && book.romance.length > 0) { %>
+            <% book.romance.forEach(function(Collection , index){ %>
+        <a href="/collections/<%= Collection._id %>" class="col text-center category__link">
+            <div class="category__img category__img--large shadow">
+                <img src="/uploads/<%= Collection.image %>" alt="<%= Collection.name %>" loading="lazy">
+            </div>
+            <div class="pt-1"><%= Collection.name %></div>   
+        </a>
+        <% }) %>
+        <% } else{ %>
+            <p> No items found. </p>
+        <% } %>
+
+    </div>
+</section>
+<!-- Romance End -->
+
+<!-- Thriller Start -->
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2>Thriller Collections</h2>
+        <a href="/categories/Thriller" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 py-4">
+
+        <% if(typeof book.thriller !== 'undefined' && book.thriller.length > 0) { %>
+            <% book.thriller.forEach(function(Collection , index){ %>
+        <a href="/collections/<%= Collection._id %>" class="col text-center category__link">
+            <div class="category__img category__img--large shadow">
+                <img src="/uploads/<%= Collection.image %>" alt="<%= Collection.name %>" loading="lazy">
+            </div>
+            <div class="pt-1"><%= Collection.name %></div>   
+        </a>
+        <% }) %>
+        <% } else{ %>
+            <p> No items found. </p>
+        <% } %>
+
+    </div>
+</section>
+<!-- Thriller End -->
+
+<!-- Fantasy Start -->
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2>Fantasy Collections</h2>
+        <a href="/categories/Fantasy" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 py-4">
+
+        <% if(typeof book.fantasy !== 'undefined' && book.fantasy.length > 0) { %>
+            <% book.fantasy.forEach(function(Collection , index){ %>
+        <a href="/collections/<%= Collection._id %>" class="col text-center category__link">
+            <div class="category__img category__img--large shadow">
+                <img src="/uploads/<%= Collection.image %>" alt="<%= Collection.name %>" loading="lazy">
+            </div>
+            <div class="pt-1"><%= Collection.name %></div>   
+        </a>
+        <% }) %>
+        <% } else{ %>
+            <p> No items found. </p>
+        <% } %>
+
+    </div>
+</section>
+<!-- Fantasy End -->
+
+<!-- Submit Start-->
+<section class="px-4 py-5 my-5 text-center">
+    <img src="/img/book-review.png" class="d-block mx-auto mb-4 img-fluid" alt="Publish your reviews" width="566" height="208" loading="lazy">
+    <h1 class="display-5 fw-bold">Publish your reviews</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Publish your reviews to tell people your experience.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="/submit-book" class="btn btn-primary btn-dark btn-lg"> Submit Review</a>
+        </div>
+    </div>
+</section>
+<!-- Submit End -->
